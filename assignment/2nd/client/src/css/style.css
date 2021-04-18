@@ -1,1 +1,2 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+*{font-family:"Montserrat", sans-serif}.analog_hour,.analog_minute,.analog_second{height:2px;border-radius:1px;position:relative;transform-origin:100%;transform:rotate(90deg)}
+/*# sourceMappingURL=style.css.map */

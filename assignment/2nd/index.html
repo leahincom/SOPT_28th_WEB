@@ -1,21 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="/client/src/css/style.css">
+    <link rel="stylesheet" href="/client/src/css/style.css" />
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="/js/clock.js" defer></script>
+    <script src="/js/weather.js" defer></script>
+    <!-- <script src="/js/index.js" defer></script> -->
 
     <title>나정현_weather-app</title>
   </head>
   <body>
+    <div class="main"></div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-    <script src="/js/index.js"></script>
-
+    <div class="api">
+      <div class="clock">
+        <!-- analog_clock 은 시계의 바탕(동그라미)이고, hour, minute, second는 각 바늘입니다 -->
+        <div class="analog">
+          <div class="analog_clock">
+            <div class="analog_hour"></div>
+            <div class="analog_minute"></div>
+            <div class="analog_second"></div>
+            <p>12</p>
+          </div>
+        </div>
+        <div class="time"></div>
+      </div>
+      <div class="calendar"></div>
+    </div>
   </body>
 </html>

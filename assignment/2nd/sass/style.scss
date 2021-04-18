@@ -1,0 +1,18 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.analog_hour,
+.analog_minute,
+.analog_second {
+  height: 2px; /* 바늘의 두께 */
+  /* transform-origin을 100%로 설정하면 오른쪽 끝을 기준으로 회전합니다
+	 * 만약 width: 2px로 하고 싶다면, transform-origin: bottom; 으로 설정하면 됩니다
+   * 여기서는 height를 기준으로 했기 때문에 바늘이 처음에는 누워있는 상태라서
+   * 자바스크립트에서 각도를 계산할 때 끝에 90을 더해줘야 원하는 대로 결과가 나옵니다
+	 */
+  border-radius: 1px;
+  position: relative;
+  transform-origin: 100%; /* 오른쪽 끝을 기준으로 회전 */
+  transform: rotate(90deg);
+}
