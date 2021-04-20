@@ -2,6 +2,16 @@
   font-family: "Montserrat", sans-serif;
 }
 
+html,
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(135, 206, 235);
+}
+
 .analog_hour,
 .analog_minute,
 .analog_second {

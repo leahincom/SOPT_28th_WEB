@@ -27,10 +27,25 @@ const fillZero = (num) => {
 
 // 시침의 각도를 계산합니다. 시침은 한 시간당 30도씩, 분당 0.5도씩 움직입니다
 // 90도를 더하는 이유는 바늘이 -90도로 누워있는 상태에서 시작하기 때문입니다 (css 참고)
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+const clock = document.getElementsByClassName("analog_clock")[0];
+clock.appendChild(canvas);
+
 const hourDegree = (hour + min / 60) * (360 / 12) + 90;
 let analogHour = document.querySelector(".analog_hour");
 // css transform 속성 중 rotate를 다음과 같이 자바스크립트에서 사용할 수 있습니다
 analogHour.style.transform = `rotate(${hourDegree}deg)`;
+
+const drawArc = () => {
+  const radians = (Math.PI / 180) * 360;
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.arc(100, 75, 60, 0, radians, true);
+  ctx.closePath();
+  ctx.fill();
+};
 
 const synchronize = () => {
   date = new Date();
@@ -53,3 +68,4 @@ const synchronize = () => {
 };
 
 setInterval(synchronize, 1000); // 1초 간격으로 콜백함수를 실행합니다
+drawArc();
