@@ -42,6 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 30%;
 
     .analog {
       margin-bottom: 1rem;
@@ -79,12 +80,61 @@ body {
     }
 
     .digital {
-      font-size: 1rem;
+      font-size: 2rem;
       font-weight: bold;
       color: white;
 
       .ampm {
         margin-left: 1rem;
+      }
+    }
+  }
+
+  .weather {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .weather_main {
+      width: 100%;
+      display: flex;
+      color: white;
+
+      .weather_icon {
+        width: 60%;
+      }
+
+      .weather_desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1rem;
+
+        .weather_temp {
+          font-size: 3rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+
+        .weather_short {
+          font-size: 2rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .weather_detail {
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        margin: 0.3rem 0.5rem 0.3rem 1rem;
+        color: lightgray;
+        font-weight: bold;
       }
     }
   }
