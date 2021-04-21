@@ -1,3 +1,14 @@
+# eslint, prettier
+.eslintrc
+.prettierrc
+
+# package.json
+package.json
+package-lock.json
+
+# .env, .gitignore
+.env
+.gitignore
 
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
