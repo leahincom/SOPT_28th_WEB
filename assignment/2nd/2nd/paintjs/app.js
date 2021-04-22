@@ -4,8 +4,14 @@ const ctx = canvas.getContext("2d");
 const palette = document.getElementsByClassName("controls__color");
 const range = document.getElementById("jsRange");
 const modeBtn = document.getElementById("jsMode");
+const saveBtn = document.getElementById("jsSave");
 
 const INITIAL_COLOR = "3c3c3c";
+const CANVAS_SIZE = canvas.width;
+
+// setting the default background color to white
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
 // all the features in this context will use these values...
 // setting the default value
@@ -73,7 +79,20 @@ function handleModeClick(event) {
 function fillCanvas(event) {
   if (filling) {
     event.target.style.backgroundColor = ctx.fillStyle;
+    // ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE); // event param not needed
   }
+}
+
+function handleCM(event) {
+  console.log(event);
+}
+
+function handleSaveClick() {
+  let image = canvas.toDataURL();
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "CANVAS_EXPORT"; // name
+  link.click();
 }
 
 // do this only if the canvas exists
@@ -83,6 +102,7 @@ if (canvas) {
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
   canvas.addEventListener("click", fillCanvas);
+  canvas.addEventListener("contextmenu", handleCM);
 }
 
 if (palette) {
@@ -97,4 +117,8 @@ if (range) {
 
 if (modeBtn) {
   modeBtn.addEventListener("click", handleModeClick);
+}
+
+if (saveBtn) {
+  saveBtn.addEventListener("click", handleSaveClick);
 }
