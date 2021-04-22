@@ -1,8 +1,9 @@
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
 
-// all the color in this context will use these features...
-ctx.strokeStyle = "#2c2c2c";
+const palette = document.getElementsByClassName("controls__color");
+
+// all the feature in this context will use this value...
 ctx.lineWidth = 2.5;
 
 let painting;
@@ -39,10 +40,18 @@ function onMouseMove(event) {
   }
 }
 
+function handleColorClick(event) {
+  // event.target.style.background
+  ctx.strokeStyle = event.target.style.backgroundColor;
+}
+
 // do this only if the canvas exists
 if (canvas) {
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
+  Array.from(palette).forEach((color) =>
+    color.addEventListener("click", handleColorClick)
+  );
 }
