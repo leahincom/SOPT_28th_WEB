@@ -1,0 +1,68 @@
+@import "./reset.css";
+
+$size: 30px;
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.mode-toggle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(to right, rgb(51, 51, 51) 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11) 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  .toggleBtn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+  }
+
+  .toggleBtn + .toggleLabel {
+    width: $size * 2;
+    height: $size;
+    background-color: rgb(235, 235, 235);
+    border-radius: $size;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 1px;
+  }
+
+  .ball {
+    position: absolute;
+    width: calc(#{$size} - 5px);
+    height: calc(#{$size} - 5px);
+    border-radius: $size/2;
+    background-color: rgb(253, 253, 253);
+    margin: 2px;
+    transition: 0.2s linear;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11) 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .toggleBtn:checked {
+    + .toggleLabel {
+      background-color: #147efb;
+
+      .ball {
+        transform: translateX(#{$size});
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11) 0 1px 3px
+          rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+}
+
+.mode-toggle.dark {
+  background-position: left bottom;
+}
