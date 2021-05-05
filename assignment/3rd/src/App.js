@@ -1,8 +1,25 @@
-import "./App.css";
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Result from "./components/Result";
-import { getUserData } from "./lib/api";
+import { getUserData, getRepoData } from "./lib/api";
+import styled from "styled-components";
+
+// css와 똑같이 작성하면 됩니당!
+const AppBlock = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+`;
 
 function App() {
   // 처음에는 data만 저장했지만, status도 함께 저장합니다
@@ -10,6 +27,11 @@ function App() {
     status: "idle",
     data: null
   }); // useState 초기값 null로 설정
+
+  const [repoData, setRepoData] = useState({
+    state: "idle",
+    data: null
+  });
 
   const getUser = async (id) => {
     // API를 불러오는 함수를 따로 분리하여 작성
@@ -26,10 +48,24 @@ function App() {
     }
   };
 
+  const getRepos = async (id) => {
+    setRepoData({ ...repoData, status: "pending" });
+    try {
+      const data = await getRepoData(id);
+      if (data === null) throw Error;
+      setRepoData({ status: "resolved", data: data });
+    } catch (e) {
+      setRepoData({ status: "rejected", data: null });
+    }
+  };
+
   return (
     <>
-      <SearchBar getUser={getUser} />
-      <Result userData={userData} />
+      <AppBlock>
+        <div className="title">GitHub Profile Finder</div>
+        <SearchBar getUser={getUser} />
+        <Result userData={userData} />
+      </AppBlock>
     </>
   );
 }

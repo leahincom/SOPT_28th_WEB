@@ -4,6 +4,9 @@
 .eslintrc
 .prettierrc
 
+# vscode
+.vscode
+
 # dependencies
 /node_modules
 /.pnp
@@ -16,6 +19,7 @@
 /build
 
 # misc
+.env
 .DS_Store
 .env.local
 .env.development.local

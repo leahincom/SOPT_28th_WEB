@@ -15,8 +15,13 @@ const SearchBarWrap = Styled.div`
   input::placeholder {
     color: white;
   }
+
   input:focus {
     outline: none;
+
+    &::placeholder {
+      color: transparent;
+    }
   }
 `;
 
@@ -46,7 +51,7 @@ const SearchBar = ({ getUser }) => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Github ID를 입력해주세요."
+          placeholder="Github ID를 입력하세요."
           value={userName}
           onChange={handleChange}
         />
