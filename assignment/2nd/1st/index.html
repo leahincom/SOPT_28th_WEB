@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="/client/src/css/style.css" />
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="/js/clock.js" defer></script>
+    <script src="/js/calendar.js" defer></script>
     <script src="/js/weather.js" defer></script>
     <!-- <script src="/js/bundle.js"></script> -->
-    <!-- <script src="/js/index.js" defer></script> -->
 
     <title>나정현_weather-app</title>
   </head>
@@ -39,7 +39,23 @@
           <span class="digital_button"></span>
         </div>
       </div>
-      <div class="calendar"></div>
+      <div class="calendar">
+        <table class="cal-table">
+          <thead>
+            <tr class="cal-month"></tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody class="cal-body"></tbody>
+        </table>
+      </div>
       <div class="weather">
         <div class="weather_main">
           <div class="weather_icon">

@@ -25,7 +25,7 @@ const fillZero = (num) => {
 };
 
 // 현재 시간 정보를 가지고 있는 객체입니다
-let date, year, month, day, hour, min, sec, ampm;
+const date, year, month, day, hour, min, sec, ampm;
 
 const analogHour = document.querySelector(".analog_hour");
 const analogMin = document.querySelector(".analog_minute");

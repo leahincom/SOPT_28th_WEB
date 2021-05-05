@@ -42,7 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 25%;
 
     .analog {
       margin-bottom: 1rem;
@@ -91,6 +91,34 @@ body {
         padding: 0.2rem;
         margin-left: 0.5rem;
         font-size: 1rem;
+      }
+    }
+  }
+
+  .calendar {
+    width: 30%;
+    margin: 1rem 0 1rem 3rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    .cal-table {
+      width: 90%;
+      border: 1px solid white;
+
+      // tr {
+      //   padding: 2rem 0;
+      // }
+
+      thead {
+        border: 1px solid white;
+
+        .cal-month {
+          color: skyblue;
+          width: 100%;
+          background-color: white;
+          text-transform: uppercase;
+        }
       }
     }
   }
