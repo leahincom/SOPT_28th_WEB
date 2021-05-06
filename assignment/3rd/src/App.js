@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Result from "./components/Result";
+import SearchHistory from "./components/SearchHistory";
 import { getUserData, getRepoData } from "./lib/api";
 import styled from "styled-components";
 
@@ -9,9 +10,15 @@ const AppBlock = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
+  .main {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
   .title {
     color: white;
@@ -62,9 +69,12 @@ function App() {
   return (
     <>
       <AppBlock>
-        <div className="title">GitHub Profile Finder</div>
-        <SearchBar getUser={getUser} />
-        <Result userData={userData} />
+        <SearchHistory userData={userData} />
+        <div className="main">
+          <div className="title">GitHub Profile Finder</div>
+          <SearchBar getUser={getUser} />
+          <Result userData={userData} />
+        </div>
       </AppBlock>
     </>
   );

@@ -16,11 +16,28 @@ const ResultCardWrap = styled.div`
   }
 
   .result_card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 50px;
+  }
+
+  .close {
+    input {
+      border: none;
+      color: white;
+      background: transparent;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    display: flex;
+    padding: 30px 40px 40px 0;
   }
 
   .result_name {
@@ -91,6 +108,11 @@ const ResultCard = ({ data }) => {
     data && (
       <ResultCardWrap>
         <div className="result_card">
+          <div className="close">
+            <form action="#">
+              <input type="submit" value="X" />
+            </form>
+          </div>
           <img src={data.avatar_url} alt="" />
           <p className="result_name">{data.name}</p>
           <p className="result_id">{data.login}</p>

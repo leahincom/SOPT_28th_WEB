@@ -51,7 +51,7 @@ const SearchBar = ({ getUser }) => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Github ID를 입력하세요."
+          placeholder="GitHub ID를 입력하세요."
           value={userName}
           onChange={handleChange}
         />
