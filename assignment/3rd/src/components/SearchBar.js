@@ -12,6 +12,7 @@ const SearchBarWrap = Styled.div`
     font-size: 15px;
     margin-bottom: 30px;
   }
+  
   input::placeholder {
     color: white;
   }
