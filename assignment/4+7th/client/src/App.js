@@ -15,7 +15,7 @@ const getCurrDate = () => {
   const currMonth = now.getMonth();
 
   return { year: currYear, month: currMonth }; // 객체로 한 번에 리턴해줍시다
-}
+};
 
 // BrowserRouter 내부에 모두 넣어줍시다
 // Switch를 사용하는 이유
@@ -28,16 +28,34 @@ function App() {
   return (
     <>
       <BrowserRouter>
-				<MainHeader />
-	      <Calendar currYear={year} setCurrYear={setYear} currMonth={month} setCurrMonth={setMonth} />
-	       {/* Calendar 컴포넌트에 state로 선언한 모든 것들을 props로 전달합니다 */}
+        <MainHeader />
+        <Calendar
+          currYear={year}
+          setCurrYear={setYear}
+          currMonth={month}
+          setCurrMonth={setMonth}
+        />
+        {/* Calendar 컴포넌트에 state로 선언한 모든 것들을 props로 전달합니다 */}
         <Title />
         <Switch>
-        {/* Main 컴포넌트에서는 해당 월의 데이터를 가지고 있어야하므로 Main에 현재 연도와 월을 넘겨줍니다 (연도에 따라 월의 데이터 다름)
+          {/* Main 컴포넌트에서는 해당 월의 데이터를 가지고 있어야하므로 Main에 현재 연도와 월을 넘겨줍니다 (연도에 따라 월의 데이터 다름)
         ex) 2021년 5월에 해당하는 데이터만 가지고 오기 위함! 연도나 월이 변경되면 자동으로 API를 다시 요청합니다 */}
-          <Route exact path="/" component={() => <Main year={year} month={month} />} />
-          <Route path="/diary/:id" component={Diary} />
-					<Route component={() => <div>Page Not Found</div>} />
+          <Route
+            exact
+            path="/"
+            component={() => <Main year={year} month={month} />}
+          />
+          <Route
+            exact
+            path="/diary/:id"
+            component={() => <Diary year={year} month={month} />}
+          />
+          <Route
+            exact
+            path="/diary/edit/:id"
+            component={() => <Diary year={year} month={month} />}
+          />
+          <Route component={() => <div>Page Not Found</div>} />
         </Switch>
       </BrowserRouter>
       <Footer />
