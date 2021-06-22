@@ -33,7 +33,11 @@ function App() {
         />
         <Title />
         <Switch>
-          <Route exact path="/" component={Main} />
+          <Route
+            exact
+            path="/"
+            component={<Main year={year} month={month} />}
+          />
           <Route path="/diary/:id" component={Diary} />
           <Route component={() => <div>Page Not Found</div>} />
         </Switch>
