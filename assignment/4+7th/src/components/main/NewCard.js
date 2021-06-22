@@ -28,7 +28,13 @@ const NewCard = ({ year, month, rawData, setUserData }) => {
     data[year] && setUserData(data[year][month]);
   };
 
-  return <div></div>;
+  return (
+    <NewCardWrap>
+      <div className="card" onClick={createCard}>
+        <div className="card__text">+ 추가해 주세요</div>
+      </div>
+    </NewCardWrap>
+  );
 };
 
 export default NewCard;
