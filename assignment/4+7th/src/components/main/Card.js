@@ -11,12 +11,12 @@ const getDateFormat = (date) => {
   return `${month}월 ${day}일`;
 };
 
-const Card = ({ userData }) => {
+const Card = ({ userData, onClickFunc }) => {
   const { date, title, image, weather, tags } = userData;
 
   return (
     <CardWrap>
-      <div className="card">
+      <div className="card" onClick={onClickFunc}>
         <div className="card__image">
           {image ? (
             <img src={image} alt="" className="card__image--photo" />
