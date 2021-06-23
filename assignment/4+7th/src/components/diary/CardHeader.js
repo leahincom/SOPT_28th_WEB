@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const CardHeader = ({ title, isReadOnly }) => {
+const CardHeader = ({ title, isReadOnly, handleChange }) => {
   return (
     <CardHeaderWrap>
       <input
         type="text"
+        name="title"
+        onChange={handleChange}
         className="header__title"
         placeholder="제목을 입력해 주세요"
         value={title}
