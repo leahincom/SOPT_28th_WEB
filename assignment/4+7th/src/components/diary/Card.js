@@ -20,8 +20,11 @@ const Card = ({ userData, match, history, rawData, year, month }) => {
   };
 
   const handleEdit = async () => {
-    const index = rawData[year][month].findIndex((data) => data.id === id);
-    rawData[year][month][index] = state;
+    // const index = rawData[year][month].findIndex((data) => data.id === id);
+
+    // newList를 따로 만드는 이유? rawData가 state의 readOnly 값이기 때문에 newList로 값을 복사해서 사용합니다
+    const newList = rawData[year].filter((data) => data); // 새로운 배열 반환
+    rawData[month][id] = state;
     const data = await createCardData(rawData);
     history.goBack();
   };
