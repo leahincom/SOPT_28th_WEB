@@ -24,7 +24,15 @@ const Card = ({ userData, match, history, rawData, year, month }) => {
 
     // newList를 따로 만드는 이유? rawData가 state의 readOnly 값이기 때문에 newList로 값을 복사해서 사용합니다
     const newList = rawData[year].filter((data) => data); // 새로운 배열 반환
-    rawData[month][id] = state;
+    newList[month][id] = state;
+    const data = await createCardData(rawData);
+    history.goBack();
+  };
+
+  const handleDelete = async () => {
+    const filteredList = rawData[year][month].filter((data) => data.id !== id);
+    const newList = rawData[year].filter((data) => data);
+    newList[month] = filteredList;
     const data = await createCardData(rawData);
     history.goBack();
   };
@@ -36,6 +44,7 @@ const Card = ({ userData, match, history, rawData, year, month }) => {
         handleChange={handleChange}
         isReadOnly={isReadOnly}
         handleEdit={handleEdit}
+        handleDelete={handleDelete}
       />
       <CardInfo
         userData={state}
