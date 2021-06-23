@@ -5,11 +5,18 @@ import RightOff from "../../assets/RightOff.svg";
 import RightOn from "../../assets/RightOn.svg";
 
 import React, { useRef } from "react";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
-const Calendar = ({ currYear, setCurrYear, currMonth, setCurrMonth }) => {
+const Calendar = ({
+  location,
+  currYear,
+  setCurrYear,
+  currMonth,
+  setCurrMonth
+}) => {
   const monthList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
+  const isMain = location.pathname === "/" ? true : false;
   // useRef를 사용하여 DOM 요소를 가져올 수 있는 변수를 선언합니다
   const leftButton = useRef();
   const rightButton = useRef();
@@ -21,7 +28,7 @@ const Calendar = ({ currYear, setCurrYear, currMonth, setCurrMonth }) => {
           <img
             src={LeftOff}
             alt=""
-            onClick={() => setCurrYear(currYear - 1)}
+            onClick={() => isMain && setCurrYear(currYear - 1)}
             onMouseEnter={() => (leftButton.current.src = LeftOn)}
             onMouseLeave={() => (leftButton.current.src = LeftOff)}
             ref={leftButton}
@@ -31,7 +38,7 @@ const Calendar = ({ currYear, setCurrYear, currMonth, setCurrMonth }) => {
           <img
             src={RightOff}
             alt=""
-            onClick={() => setCurrYear(currYear + 1)}
+            onClick={() => isMain && setCurrYear(currYear + 1)}
             onMouseEnter={() => (rightButton.current.src = RightOn)}
             onMouseLeave={() => (rightButton.current.src = RightOff)}
             ref={rightButton}
@@ -61,7 +68,7 @@ const Calendar = ({ currYear, setCurrYear, currMonth, setCurrMonth }) => {
   );
 };
 
-export default Calendar;
+export default withRouter(Calendar);
 
 const CalendarWrap = styled.div`
   .calendar {
